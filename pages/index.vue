@@ -1,13 +1,17 @@
 <template>
     <div class="">
-        <div class="clock">
-        <p class="countdown">
-            <span class="days">{{ days }}</span>Days
-            <span class="hours">{{ hours }}</span>Hours
-            <span class="minutes">{{ minutes }}</span>Minutes
-            <span class="seconds">{{ seconds }}</span>Seconds
-        </p>
+        <div class="clock countdown">
+            <div class="days">{{ days }}</div>
+            <div class="hours">{{ hours }}</div>
+            <div class="minutes">{{ minutes }}</div>
+            <div class="seconds">{{ seconds }}</div>
     </div>
+    <div class="style-countdown">
+    <p>days</p>
+    <p>days</p>
+    <p>days</p>
+    <p>days</p>
+</div>
 <div class="container-div">
     <div class="container-form">
         <h3 class="form">Formulario</h3>
@@ -136,5 +140,9 @@
     display: flex;
     justify-content: center;
     position: relative;
+  }
+  .style-countdown{
+    display: flex;
+    justify-content: center;
   }
   </style>

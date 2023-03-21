@@ -7,10 +7,10 @@
             <div class="time-clock">{{ seconds }}</div>
     </div>
     <div class="style-countdown">
-    <p class="time">Days</p>
-    <p class="time">Hours</p>
-    <p class="time">Minutes</p>
-    <p class="time">Seconds</p>
+    <p class="time" style="margin-right: -10px;margin-left: 37px;">Days</p>
+    <p class="time" style="margin-left: 43px;margin-right: 51px;">Hours</p>
+    <p class="time" style="margin-right: 76px;margin-left: -31px;">Minutes</p>
+    <p class="time" style="margin-left: -65px;margin-right: 20px;">Seconds</p>
 </div>
 <div class="container-div">
     <div class="container-form">
@@ -54,6 +54,10 @@
   
   <style lang="css" scoped>
   /* Estilos para el contador */
+  @font-face {
+        font-family: 'fuenteled';
+        src: url(../pages/font/DS-DIGIT.TTF);
+    }
   .countdown {
     font-size: 24px;
     font-family: Arial, sans-serif;
@@ -65,34 +69,38 @@
     font-weight: bold;
   }
   .time-clock{
-    color: rgb(48, 88, 107);
+    color: #ffffff;
     background-color: rgb(4, 7, 27);
-    border-radius: 87%;
-    border: solid 2px rgb(201, 188, 3);
-    font-size: 135%;
+    border-radius: 30px;
+    font-size: 35px;
     margin: 15px;
-    width: 4%;
+    width: 50px;
     height: 50px;
     text-align: center;
     align-items: center;
     display: grid;
     position: relative;
+    border: 1px solid cyan;
+    box-shadow: inset 0 0 10px 0 cyan;
+    font-family: 'fuenteled',sans-serif;
+    margin-top: 120px;
+    
   } 
   /* Resto de estilos */
   .container-form {
     background-color: rgb(255, 255, 255);
-    width: 20%;
-    height: 315px;
+    width: 315px;
+    height: 350px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 40px;
     padding: 5%;
+    padding-top: 33px;
     border: solid 3px rgb(34, 145, 189);
   }
 
   .form {
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: -40px;
     margin-bottom: 20px;
     font-weight: 600;
   }
@@ -105,7 +113,7 @@
 
   .all-put {
     margin: 5%;
-    width: 138%;
+    width: 240px;
     height: 35px;
     margin-left: -23px;
     border: none;
@@ -129,8 +137,6 @@
   .style-countdown{
     display: flex;
     justify-content: center;
-    margin-left: 35px;
-    margin-right: 7px;
     margin-top: -18px;
   }
   .time{

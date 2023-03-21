@@ -1,16 +1,16 @@
 <template>
-    <div class="">
+    <div style="background-color: black; margin-top: -20px; height: 100vh;">
         <div class="clock countdown">
-            <div class="days">{{ days }}</div>
-            <div class="hours">{{ hours }}</div>
-            <div class="minutes">{{ minutes }}</div>
-            <div class="seconds">{{ seconds }}</div>
+            <div class="time-clock">{{ days }}</div>
+            <div class="time-clock">{{ hours }}</div>
+            <div class="time-clock">{{ minutes }}</div>
+            <div class="time-clock">{{ seconds }}</div>
     </div>
     <div class="style-countdown">
-    <p>days</p>
-    <p>days</p>
-    <p>days</p>
-    <p>days</p>
+    <p class="time">Days</p>
+    <p class="time">Hours</p>
+    <p class="time">Minutes</p>
+    <p class="time">Seconds</p>
 </div>
 <div class="container-div">
     <div class="container-form">
@@ -64,44 +64,29 @@
   .countdown span {
     font-weight: bold;
   }
-  
-  .countdown .days {
-    color: rgb(250, 250, 255);
-    background-color: black;
-    border-radius: 40%;
+  .time-clock{
+    color: rgb(48, 88, 107);
+    background-color: rgb(4, 7, 27);
+    border-radius: 87%;
+    border: solid 2px rgb(201, 188, 3);
     font-size: 135%;
-  }
-
-  .countdown .hours {
-    color: rgb(250, 250, 255);
-    background-color: black;
-    border-radius: 40%;
-    font-size: 135%;
-  }
-  
-  .countdown .minutes {
-    color: rgb(250, 250, 255);
-    background-color: black;
-    border-radius: 40%;
-    font-size: 135%;
-  }
-  
-  .countdown .seconds {
-    color: rgb(250, 250, 255);
-    background-color: black;
-    border-radius: 40%;   
-    font-size: 135%;
-  }
-  
+    margin: 15px;
+    width: 4%;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    position: relative;
+  } 
   /* Resto de estilos */
   .container-form {
     background-color: rgb(255, 255, 255);
     width: 20%;
     height: 315px;
     text-align: center;
-    margin-top: 154px;
+    margin-top: 100px;
     padding: 5%;
-    border: solid 2px rgb(34, 145, 189);
+    border: solid 3px rgb(34, 145, 189);
   }
 
   .form {
@@ -144,5 +129,14 @@
   .style-countdown{
     display: flex;
     justify-content: center;
+    margin-left: 35px;
+    margin-right: 7px;
+    margin-top: -18px;
+  }
+  .time{
+    margin: 13px;
+    color: cadetblue;
+    font-weight: 900;
+    font-size: 16px;
   }
   </style>

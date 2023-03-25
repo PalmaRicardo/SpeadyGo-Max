@@ -13,29 +13,37 @@
       <p class="time" style="margin-left: -65px; margin-right: 20px">Seconds</p>
     </div>
     <div style="justify-content: flex-end; display: flex">
-      <button class="open-modal" @click="showModal = true"></button>
+      <button class="open-modal" @click="showModal = true "></button>
     </div>
     <div class="container">
-      <dialog style="position: absolute; z-index: 1" :open="showModal">
-        <div class="container-form">
-          <div class="figure"></div>
-          <span class="form-title">Formulario</span>
-          <form action="">
-            <input type="text" class="all-put" id="nombre" name="nombre" placeholder="Nombre" required /><br />
-            <input type="text" class="all-put" id="apellido" name="apellido" placeholder="Apellido" required /><br />
-            <input type="email" class="all-put" name="email" id="email" placeholder="Correo Electronico" required /><br />
-            <button type="submit" class="button-form">Enviar</button>
-          </form>
+      <dialog class="modal-pop-up" :open="showModal">
+        <div style="justify-content: center;display: grid;">
+          <div style="justify-content: end;display: grid;justify-items: end;">
+          <button class="btn-cerrar-modal" @click="showModal = false">
+            <div class="btn-fill" ref="btnFill"></div>
+            <span class="btn-txt">X</span>
+          </button>
         </div>
-        <button @click="showModal = false">cerrar modal</button>
+          <div class="container-form">
+            <span class="form-title">Formulario</span>
+            <div class="figure"></div>
+            <form action="">
+              <input type="text" class="all-put" id="nombre" name="nombre" placeholder="Nombre" required /><br />
+              <input type="text" class="all-put" id="apellido" name="apellido" placeholder="Apellido" required /><br />
+              <input type="email" class="all-put" name="email" id="email" placeholder="Correo Electronico"
+                required /><br />
+              <button type="submit" class="button-form">Enviar</button>
+            </form>
+          </div>
+        </div>
       </dialog>
       <client-only>
-                    <vue-plyr :options="options">
-                        <video controls crossorigin playsinline>
-                            <source type="video/mp4" />
-                        </video>
-                    </vue-plyr>
-                </client-only>
+        <vue-plyr :options="options">
+          <video controls crossorigin playsinline>
+            <source type="video/mp4" />
+          </video>
+        </vue-plyr>
+      </client-only>
     </div>
     <div class="container-div"></div>
   </div>
@@ -70,6 +78,47 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.btn-cerrar-modal {
+  background: rgba(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: cyan;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+  border: 1px solid cyan;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 152px;
+  margin-right: -19px;
+}
+.btn-fill {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.5s, height 0.5s;
+}
+.btn-txt {
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  font-size: 25px;
+  font-weight: 600;
+}
+.btn-cerrar-modal:hover .btn-fill {
+  width: 300px;
+  height: 300px;
+}
+.btn-cerrar-modal:hover .btn-txt {
+  color: #000;
+}
+
 .plyr__poster {
   background-size: cover !important;
 }
@@ -78,6 +127,16 @@ export default {
 @font-face {
   font-family: "fuenteled";
   src: url(../pages/font/DS-DIGIT.TTF);
+}
+
+.modal-pop-up {
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  justify-content: center;
+  height: -webkit-fill-available;
+  margin-top: -120px;
 }
 
 .open-modal {
@@ -123,7 +182,7 @@ export default {
 
 /* Resto de estilos */
 .container-form {
-  background-color:rgba(0, 255, 255, 0.142);
+  background-color: rgba(0, 255, 255, 0.142);
   width: 315px;
   height: 350px;
   text-align: center;
@@ -134,8 +193,7 @@ export default {
   border-color: cyan;
   border-radius: 5px;
   position: relative;
-  display: block;
-  justify-content: center;
+  margin-top: 170px;
 }
 
 .form-title {
@@ -159,14 +217,15 @@ export default {
   width: 240px;
   height: 35px;
   border: none;
-  background-color:rgba(0, 255, 255, 0.142);
+  background-color: rgba(0, 255, 255, 0);
   border-bottom: solid 2px cyan !important;
+  color: #ffffff;
 }
 
 .button-form {
   border-radius: 30px;
   border: solid cyan;
-  background-color: rgba(0, 255, 255,0.142);
+  background-color: rgba(0, 255, 255, 0.142);
   color: rgb(255, 255, 255);
   width: 88%;
   height: 35px;
@@ -194,14 +253,14 @@ export default {
   font-weight: 900;
   font-size: 16px;
 }
-.figure{
-    margin-top: 0;
-    margin-bottom: 10%;
-    width: 0px;
-    height: 0px;
-    border-width: 15px;
-    border-style: solid;
-    border-color: transparent transparent cyan cyan;
-    transform: rotate(224deg);
-}
-</style>
+
+.figure {
+  margin-top: -30px;
+  margin-bottom: 10%;
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent cyan cyan;
+  transform: rotate(224deg);
+}</style>

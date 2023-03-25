@@ -18,7 +18,8 @@
     <div class="container">
       <dialog style="position: absolute; z-index: 1" :open="showModal">
         <div class="container-form">
-          <h3 class="form">Formulario</h3>
+          <div class="figure"></div>
+          <span class="form-title">Formulario</span>
           <form action="">
             <input type="text" class="all-put" id="nombre" name="nombre" placeholder="Nombre" required /><br />
             <input type="text" class="all-put" id="apellido" name="apellido" placeholder="Apellido" required /><br />
@@ -122,21 +123,29 @@ export default {
 
 /* Resto de estilos */
 .container-form {
-  background-color: rgb(255, 255, 255);
+  background-color:rgba(0, 255, 255, 0.142);
   width: 315px;
   height: 350px;
   text-align: center;
   margin-top: 40px;
   padding: 5%;
   padding-top: 33px;
-  border: solid 3px rgb(34, 145, 189);
+  border: solid 1px;
+  border-color: cyan;
+  border-radius: 5px;
+  position: relative;
+  display: block;
+  justify-content: center;
 }
 
-.form {
+.form-title {
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   font-weight: 600;
+  color: white;
+  text-shadow: 1px 0px 6px cyan;
+  letter-spacing: 2px;
 }
 
 .container-div {
@@ -149,19 +158,22 @@ export default {
   margin: 5%;
   width: 240px;
   height: 35px;
-  margin-left: -23px;
   border: none;
-  border-bottom: solid 1px gray;
+  background-color:rgba(0, 255, 255, 0.142);
+  border-bottom: solid 2px cyan !important;
 }
 
 .button-form {
-  background-color: rgb(0, 0, 0);
+  border-radius: 30px;
+  border: solid cyan;
+  background-color: rgba(0, 255, 255,0.142);
   color: rgb(255, 255, 255);
-  border: none;
   width: 88%;
   height: 35px;
   text-align: center;
   margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .clock {
@@ -181,5 +193,15 @@ export default {
   color: cadetblue;
   font-weight: 900;
   font-size: 16px;
+}
+.figure{
+    margin-top: 0;
+    margin-bottom: 10%;
+    width: 0px;
+    height: 0px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent cyan cyan;
+    transform: rotate(224deg);
 }
 </style>

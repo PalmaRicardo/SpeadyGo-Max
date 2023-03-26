@@ -13,27 +13,29 @@
       <p class="time" style="margin-left: -65px; margin-right: 20px">Seconds</p>
     </div>
     <div style="justify-content: flex-end; display: flex">
-      <button class="open-modal" @click="showModal = true "></button>
+      <button class="open-modal" @click="showModal = true"></button>
     </div>
     <div class="container">
       <dialog class="modal-pop-up" :open="showModal">
         <div style="justify-content: center;display: grid;">
           <div style="justify-content: end;display: grid;justify-items: end;">
-          <button class="btn-cerrar-modal" @click="showModal = false">
-            <div class="btn-fill" ref="btnFill"></div>
-            <span class="btn-txt">X</span>
-          </button>
-        </div>
-          <div class="container-form">
-            <span class="form-title">Formulario</span>
-            <div class="figure"></div>
-            <form action="">
-              <input type="text" class="all-put" id="nombre" name="nombre" placeholder="Nombre" required /><br />
-              <input type="text" class="all-put" id="apellido" name="apellido" placeholder="Apellido" required /><br />
-              <input type="email" class="all-put" name="email" id="email" placeholder="Correo Electronico"
-                required /><br />
-              <button type="submit" class="button-form">Enviar</button>
-            </form>
+            <button class="btn-cerrar-modal" @click="showModal = false">
+              <div class="btn-fill" ref="btnFill"></div>
+              <span class="btn-txt">X</span>
+            </button>
+          </div>
+          <div class="container-form mydiv animate-bg">
+            <div class="color-replace">
+              <span class="form-title">Formulario</span>
+              <div class="figure"></div>
+              <form action="">
+                <input type="text" class="all-put" id="nombre" name="nombre" placeholder="Nombre" required /><br />
+                <input type="text" class="all-put" id="apellido" name="apellido" placeholder="Apellido" required /><br />
+                <input type="email" class="all-put" name="email" id="email" placeholder="Correo Electronico"
+                  required /><br />
+                <button type="submit" class="button-form">Enviar</button>
+              </form>
+            </div>
           </div>
         </div>
       </dialog>
@@ -78,6 +80,60 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.color-replace {
+  background-color: #00ffff24;
+  width: 315px;
+  height: 350px;
+  text-align: center;
+  margin-top: -33px;
+  padding: 5%;
+  padding-top: 33px;
+  border-radius: 5px;
+  position: relative;
+  left: -17px;
+}
+
+
+@keyframes BGgradient {
+  0% {
+    background-position: 0% 200%;
+  }
+
+  50% {
+    background-position: 200% 0%;
+  }
+
+  100% {
+    background-position: 0% 330%;
+  }
+}
+
+.animate-bg:after {
+  filter: brightness(1.4);
+  filter: drop-shadow(16px 16px 20px rgb(97, 185, 248));
+  filter: blur(15px);
+}
+
+.animate-bg:before,
+.animate-bg:after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  background: linear-gradient(120deg, #0800fb, #0160a0, #031ba5, #00ffd0, #0303e6, #002afb, #3fafd1, #04c2e4, #1f1fcd, #00c3ff);
+  background-size: 300%;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  z-index: -1;
+  animation: BGgradient 15s ease infinite;
+  border-radius: 5px;
+}
+
+.mydiv {
+  position: relative;
+  background: linear-gradient(90deg, #000, #000000);
+}
+
 
 .btn-cerrar-modal {
   background: rgba(0, 0, 0);
@@ -88,12 +144,14 @@ export default {
   position: relative;
   overflow: hidden;
   font-size: 1.1rem;
-  border: 1px solid cyan;
+  border: 1px solid #00ffff;
   cursor: pointer;
   position: absolute;
   margin-top: 152px;
   margin-right: -19px;
+  z-index: 1;
 }
+
 .btn-fill {
   content: "";
   position: absolute;
@@ -104,6 +162,7 @@ export default {
   border-radius: 50%;
   transition: width 0.5s, height 0.5s;
 }
+
 .btn-txt {
   position: relative;
   z-index: 1;
@@ -111,10 +170,12 @@ export default {
   font-size: 25px;
   font-weight: 600;
 }
+
 .btn-cerrar-modal:hover .btn-fill {
   width: 300px;
   height: 300px;
 }
+
 .btn-cerrar-modal:hover .btn-txt {
   color: #000;
 }
@@ -182,17 +243,11 @@ export default {
 
 /* Resto de estilos */
 .container-form {
-  background-color: rgba(0, 255, 255, 0.142);
-  width: 315px;
   height: 350px;
-  text-align: center;
   margin-top: 40px;
   padding: 5%;
   padding-top: 33px;
-  border: solid 1px;
-  border-color: cyan;
   border-radius: 5px;
-  position: relative;
   margin-top: 170px;
 }
 
